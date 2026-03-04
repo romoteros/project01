@@ -9,6 +9,7 @@ public class LibraryManager {
     private List<String> libros = new ArrayList<>();
     private List<String> usuarios = new ArrayList<>();
     
+    
     public void procesarPrestamo(String usuario, String libro, int dias) {
 	    if (usuarios.contains(usuario) && libros.contains(libro)) {
 	        System.out.println("Verificando disponibilidad...");
