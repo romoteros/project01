@@ -16,7 +16,7 @@ public class LibraryManager {
 	            System.out.println("Prestamo realizado");
 	            books.remove(book);
 
-	            // Calcular fecha de devolución
+	            // Return date calculation
 	            Calendar cal = Calendar.getInstance();
 	            cal.add(Calendar.DAY_OF_MONTH, day);
 	            System.out.println("Fecha devolucion: " + cal.getTime());
