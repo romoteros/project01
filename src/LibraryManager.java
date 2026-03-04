@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -8,23 +7,32 @@ public class LibraryManager {
 	private List<String> books = new ArrayList<>();
 	private List<String> users = new ArrayList<>();
 
-	public void processLoan(String user, String book, int day) {
-		if (!users.contains(user) || !books.contains(book))
+	public void processLoan(String user, String book, int days) {
+		// Guard Clause: Check if user and book exist
+		if (!users.contains(user) || !books.contains(book)) {
 			return;
-		System.out.println("Verificando disponibilidad...");
+		}
+			
+		System.out.println("Checking availability...");
+		
+		// In a real scenario, this would check a database
 		boolean isAvailable = true;
-		if (!isAvailable)
+		
+		// Guard Clause: Check if the book is actually available
+		if (!isAvailable) {
 			return;
-		System.out.println("Prestamo realizado");
+		}
+			
+		System.out.println("Loan completed successfully");
 		books.remove(book);
-		// Return date calculation
-		imprimirFechaDevolucion(day);
+		
+		// Method call to handle date logic
+		printReturnDate(days);
 	}
 
-	private void imprimirFechaDevolucion(int day) {
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.DAY_OF_MONTH, day);
-		System.out.println("Fecha devolucion: " + cal.getTime());
-
+	private void printReturnDate(int days) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_MONTH, days);
+		System.out.println("Return date: " + calendar.getTime());
 	}
 }
